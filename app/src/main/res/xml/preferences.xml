@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Кот">
+        <CheckBoxPreference
+            android:key="cat_key"
+            android:summary="Доступно для владельцев котов"
+            android:title="У Вас есть кот?"
+            android:defaultValue="true"/>
+        <EditTextPreference
+            android:key="cat_food"
+            android:title="Подарки для кота"
+            android:summary="Угости кота"
+            android:dependency="cat_key"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Работа с файлами">
+        <CheckBoxPreference
+            android:key="@string/pref_open_mode"
+            android:summary="Открывать файл при запуске приложения"
+            android:title="Открыть"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Настройки шрифта">
+        <EditTextPreference
+            android:defaultValue="14"
+            android:dialogTitle="Введите размер шрифта (от 10 до 32)"
+            android:key="@string/pref_size"
+            android:summary="Устанавливает новый размер шриффта"
+            android:title="Размер шрифта"/>
+
+        <ListPreference
+            android:key="@string/pref_style"
+            android:title="Стиль для шрифта"
+            android:summary="Устанавливает стиль для шрифта"
+            android:defaultValue="1"
+            android:entries="@array/text_style"
+            android:entryValues="@array/text_style"
+            android:dialogTitle="Выберите стиль для шрифта"/>
+
+        <PreferenceScreen
+            android:key="text_color"
+            android:title="Цвет текста"
+            android:summary="Устанавливает цвет для текста">
+
+            <CheckBoxPreference
+                android:key="text_color_black"
+                android:title="@string/pref_color_black"
+                android:defaultValue="true"
+                android:summary="Устанавливает четный цвет"/>
+            <CheckBoxPreference
+                android:key="text_color_red"
+                android:title="@string/pref_color_red"
+                android:summary="Устанавливает красный цвет"/>
+            <CheckBoxPreference
+                android:key="text_color_blue"
+                android:title="@string/pref_color_blue"
+                android:summary="Устанавливает синий цвет"/>
+            <CheckBoxPreference
+                android:key="text_color_green"
+                android:title="@string/pref_color_green"
+                android:summary="Устанавливает зеленый цвет"/>
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:summary="Импортированная системная настройка"
+            android:title="Настройка через намерение">
+            <intent android:action="android.settings.AIRPLANE_MODE_SETTINGS"/>
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>
